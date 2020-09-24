@@ -26,7 +26,7 @@ export default class Body extends Component {
     makeID = () => {
         const makePathID = (length) => {
             let text = "";
-            const char_list = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            const char_list = "ABCDEFGHIJKLMNOQRSTPUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             for (let i = 0; i < length; i++) {
                 text += char_list.charAt(Math.floor(Math.random() * char_list.length));
             }
