@@ -25,7 +25,7 @@ export default class Body extends Component {
         })
     }
 
-    mailServiceData = (event) => {
+    mailServiceChange = (event) => {
         this.setState({
             mailServiceData: event.target.value
         })
@@ -61,20 +61,19 @@ export default class Body extends Component {
                     <div className="body-input">
                         <div className="body-input__basic"><input onChange={this.basicChange} type="text" placeholder='Enter mailbox name. Example: "Alex"' /></div>
                         <div className="body-input__modifier"><input onChange={this.modifierChange} type="text" placeholder='Enter the number modifier. Example: "1"' /></div>
-                        <div className="body-input__@"><h1>@</h1></div>
-                        <div className="body-input__mail-service"><input onChange={this.mailServiceData} type="text" placeholder='Enter mail service name. Example: "gmail.com"' /></div>
-                        <div className="body-input__button"><button onClick={this.generateCredential} type="submit">generate</button></div>
+                        <div className="body-input__specSumbol"><h1> + @ + </h1></div>
+                        <div className="body-input__mail-service"><input onChange={this.mailServiceChange} type="text" placeholder='Enter mail service name. Example: "gmail.com"' /></div>
+                        <div className="body-input__button"><button accesskey="a" onClick={this.generateCredential} type="submit">generate (alt+a)</button></div>
                     </div>
                     <div className="body-settings">
-                        <div className="body-settings__randomPassword-title">generate random password</div>
-                        <div className="body-settings__randomPassword-checkbox"><input type="checkbox" /></div>
+                      
                     </div>
                     <div className="body-list">
-                        <div className="body-list__headline">Generated list</div>
+                        <div className="body-list__headline"><p>Generated list</p></div>
                         <div className="body-list__generate-list">
                             {
                                 data.length ? data.reverse().map((obj) => {
-                                    return <p>{obj.email} - {obj.pass} <button onClick={() => document.execCommand("copy")}>copy</button></p>
+                                    return <p>{obj.email} - {obj.pass}</p>
                                 }) : <p>empty</p>
                             }
                         </div>
